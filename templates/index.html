@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Inteligente de Compras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>Cotações Compras</span>
+                <small>Analisando dados</small>
+            </div>
+            
+            <div class="upload-new-section">
+                <button class="btn-upload-new" id="newUploadBtn">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Novo Upload</span>
+                </button>
+                <input type="file" id="newFileInput" accept=".csv" style="display: none;">
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-page="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </button>
+    
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <i class="fas fa-file-csv"></i>
+                    <div>
+                        <div id="fileName"></div>
+                        <small id="fileStats"></small>
+                    </div>
+                </div>
+                
+                <div class="report-actions" id="reportActions" style="display: none;">
+                    <button class="btn-report" id="exportExcelBtn">
+                        <i class="fas fa-file-excel"></i>
+                        <span>Exportar Excel</span>
+                    </button>
+                    <button class="btn-report" id="exportCsvBtn">
+                        <i class="fas fa-file-csv"></i>
+                        <span>Exportar CSV</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h1 id="pageTitle">Dashboard de Compras</h1>
+                    <p id="pageSubtitle">Visão geral do sistema de análise</p>
+                </div>
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <span class="stat-dot"></span>
+                        <span>Sistema Online</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <i class="fas fa-file-upload"></i>
+                    <h3>Arraste seu arquivo CSV aqui</h3>
+                    <p>ou clique para selecionar</p>
+                    <span class="upload-hint">Suporta arquivos .csv com colunas: Código Produto, Preço, Fornecedor, etc.</span>
+                </div>
+                <input type="file" id="fileInput" accept=".csv" style="display: none;">
+            </div>
+            
+            <!-- Loading -->
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-card">
+                    <div class="spinner"></div>
+                    <h3>Processando dados...</h3>
+                    <p>Analisando planilha e gerando insights</p>
+                </div>
+            </div>
+            
+            <!-- Results Container -->
+            <div id="resultsContainer" style="display: none;"></div>
+        </main>
+    </div>
+    
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
